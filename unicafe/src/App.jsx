@@ -26,6 +26,7 @@ const Positive = ({ feedback }) => {
   )
 }
 
+// I did this in 1.7
 const Statistics = ({ feedback }) => {
   let [good, neutral, bad] = feedback
   let all = good + neutral + bad
