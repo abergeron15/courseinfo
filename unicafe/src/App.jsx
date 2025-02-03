@@ -4,9 +4,9 @@ const Button = (props) => (
   <button onClick={props.onClick}>{props.text}</button>
 )
 
-const StatisticLine = ({ text, value }) => {
+const StatisticLine = ({ text, value, sign }) => {
   return (
-    <>{text} {value}</>
+    <tr><td>{text}</td><td>{value}{sign}</td></tr>
   )
 }
 
@@ -28,14 +28,16 @@ const Statistics = ({ feedback }) => {
   return (
     <div>
       <h1>statistics</h1>
-      <div>
-        <p><StatisticLine text="good" value={good} /></p>
-        <p><StatisticLine text="neutral" value={neutral} /></p>
-        <p><StatisticLine text="bad" value={bad} /></p>
-        <p><StatisticLine text="all" value={all} /></p>
-        <p><StatisticLine text="average" value={average} /></p>
-        <p><StatisticLine text="positive" value={positive} />%</p>
-      </div>
+      <table>
+        <tbody>
+          <StatisticLine text="good" value={good} />
+          <StatisticLine text="neutral" value={neutral} />
+          <StatisticLine text="bad" value={bad} />
+          <StatisticLine text="all" value={all} />
+          <StatisticLine text="average" value={average} />
+          <StatisticLine text="positive" value={positive} sign="%" />
+        </tbody>
+      </table>
     </div>
   )
 }
