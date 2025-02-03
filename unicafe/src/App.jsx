@@ -4,25 +4,9 @@ const Button = (props) => (
   <button onClick={props.onClick}>{props.text}</button>
 )
 
-const Count = ({ score, count }) => (
-  <p>{score} {count}</p>
-)
-
-const Average = ({ feedback }) => {
-  let [good, neutral, bad] = feedback
-  let all = good + neutral + bad
-  let average = (good - bad) / all
+const StatisticLine = ({ text, value }) => {
   return (
-    <p>average {average}</p>
-  )
-}
-
-const Positive = ({ feedback }) => {
-  let [good, neutral, bad] = feedback
-  let all = good + neutral + bad
-  let positive = good / all * 100
-  return (
-    <p>positive {positive}%</p>
+    <>{text} {value}</>
   )
 }
 
@@ -45,12 +29,12 @@ const Statistics = ({ feedback }) => {
     <div>
       <h1>statistics</h1>
       <div>
-        <Count score="good" count={good} />
-        <Count score="neutral" count={neutral} />
-        <Count score="bad" count={bad} />
-        <Count score="all" count={all} />
-        <Average feedback={feedback} />
-        <Positive feedback={feedback} />
+        <p><StatisticLine text="good" value={good} /></p>
+        <p><StatisticLine text="neutral" value={neutral} /></p>
+        <p><StatisticLine text="bad" value={bad} /></p>
+        <p><StatisticLine text="all" value={all} /></p>
+        <p><StatisticLine text="average" value={average} /></p>
+        <p><StatisticLine text="positive" value={positive} />%</p>
       </div>
     </div>
   )
